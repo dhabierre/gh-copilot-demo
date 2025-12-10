@@ -6,16 +6,24 @@
           <h1>{{ t('app.title') }}</h1>
           <p>🎵 {{ t('albums.listTitle') }}</p>
         </div>
-        <div class="lang-select">
-          <label for="lang">{{ t('app.language') }}</label>
-          <select id="lang" v-model="locale">
-            <option value="en">{{ t('app.languages.en') }}</option>
-            <option value="fr">{{ t('app.languages.fr') }}</option>
-            <option value="de">{{ t('app.languages.de') }}</option>
-          </select>
+        <div class="header-controls">
+          <div class="lang-select">
+            <label for="lang">{{ t('app.language') }}</label>
+            <select id="lang" v-model="locale">
+              <option value="en">{{ t('app.languages.en') }}</option>
+              <option value="fr">{{ t('app.languages.fr') }}</option>
+              <option value="de">{{ t('app.languages.de') }}</option>
+            </select>
+          </div>
+          <button class="cart-btn" @click="toggleDrawer">
+            <span class="cart-icon">🛒</span>
+            <span v-if="getCount > 0" class="cart-badge">{{ getCount }}</span>
+          </button>
         </div>
       </div>
     </header>
+
+    <CartDrawer />
 
     <main class="main">
       <div v-if="loading" class="loading">
@@ -44,6 +52,8 @@ import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import axios from 'axios'
 import AlbumCard from './components/AlbumCard.vue'
+import CartDrawer from './components/CartDrawer.vue'
+import { useCart } from './store/cart'
 import type { Album } from './types/album'
 
 const albums = ref<Album[]>([])
@@ -51,6 +61,7 @@ const loading = ref<boolean>(true)
 const error = ref<string | null>(null)
 
 const { t, locale } = useI18n()
+const { getCount, toggleDrawer, loadFromStorage } = useCart()
 
 const fetchAlbums = async (): Promise<void> => {
   try {
@@ -67,6 +78,7 @@ const fetchAlbums = async (): Promise<void> => {
 }
 
 onMounted(() => {
+  loadFromStorage()
   fetchAlbums()
 })
 </script>
@@ -89,11 +101,60 @@ onMounted(() => {
   justify-content: space-between;
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .lang-select {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
+
+.cart-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.cart-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+}
+
+.cart-icon {
+  display: block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
 
 .header h1 {
   font-size: 3rem;

@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import albumsRouter from './routes/albums';
+import albumsRouter from './routes/albums.js';
 
 const app = express();
 

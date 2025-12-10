@@ -10,6 +10,18 @@
   },
   "albums": {
     "listTitle": "Alben",
-    "price": "Preis"
+    "price": "Preis",
+    "addToCart": "In den Warenkorb",
+    "preview": "Vorschau"
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "add": "In den Warenkorb",
+    "remove": "Entfernen",
+    "items": "Artikel",
+    "total": "Summe",
+    "empty": "Ihr Warenkorb ist leer",
+    "clear": "Warenkorb leeren",
+    "subtotal": "Zwischensumme"
   }
 }

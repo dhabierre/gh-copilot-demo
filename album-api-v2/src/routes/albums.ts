@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { Album, albums } from '../models/album';
+import { Album, albums } from '../models/album.js';
 
 const router = Router();
 
