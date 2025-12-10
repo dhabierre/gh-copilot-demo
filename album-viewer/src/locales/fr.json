@@ -1,0 +1,15 @@
+{
+  "app": {
+    "title": "Visionneuse d'albums",
+    "language": "Langue",
+    "languages": {
+      "en": "Anglais",
+      "fr": "Français",
+      "de": "Allemand"
+    }
+  },
+  "albums": {
+    "listTitle": "Albums",
+    "price": "Prix"
+  }
+}

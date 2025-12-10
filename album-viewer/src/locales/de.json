@@ -1,0 +1,15 @@
+{
+  "app": {
+    "title": "Albumanzeige",
+    "language": "Sprache",
+    "languages": {
+      "en": "Englisch",
+      "fr": "Französisch",
+      "de": "Deutsch"
+    }
+  },
+  "albums": {
+    "listTitle": "Alben",
+    "price": "Preis"
+  }
+}

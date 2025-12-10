@@ -1,0 +1,15 @@
+{
+  "app": {
+    "title": "Album Viewer",
+    "language": "Language",
+    "languages": {
+      "en": "English",
+      "fr": "French",
+      "de": "German"
+    }
+  },
+  "albums": {
+    "listTitle": "Albums",
+    "price": "Price"
+  }
+}
