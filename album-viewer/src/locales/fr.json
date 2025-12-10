@@ -10,6 +10,18 @@
   },
   "albums": {
     "listTitle": "Albums",
-    "price": "Prix"
+    "price": "Prix",
+    "addToCart": "Ajouter au panier",
+    "preview": "Aperçu"
+  },
+  "cart": {
+    "title": "Panier",
+    "add": "Ajouter au panier",
+    "remove": "Retirer",
+    "items": "Articles",
+    "total": "Total",
+    "empty": "Votre panier est vide",
+    "clear": "Vider le panier",
+    "subtotal": "Sous-total"
   }
 }

@@ -21,8 +21,8 @@
     </div>
     
     <div class="album-actions">
-      <button class="btn btn-primary">{{ t('albums.price') }}</button>
-      <button class="btn btn-secondary">{{ t('albums.listTitle') }}</button>
+      <button class="btn btn-primary" @click="addToCart">{{ t('albums.addToCart') }}</button>
+      <button class="btn btn-secondary">{{ t('albums.preview') }}</button>
     </div>
   </div>
 </template>
@@ -30,14 +30,20 @@
 <script setup lang="ts">
 import type { Album } from '../types/album'
 import { useI18n } from 'vue-i18n'
+import { useCart } from '../store/cart'
 
 interface Props {
   album: Album
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const { t } = useI18n()
+const { addItem } = useCart()
+
+const addToCart = () => {
+  addItem(props.album)
+}
 
 const handleImageError = (event: Event): void => {
   const target = event.target as HTMLImageElement

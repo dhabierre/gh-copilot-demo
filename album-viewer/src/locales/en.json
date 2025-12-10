@@ -10,6 +10,18 @@
   },
   "albums": {
     "listTitle": "Albums",
-    "price": "Price"
+    "price": "Price",
+    "addToCart": "Add to Cart",
+    "preview": "Preview"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "add": "Add to Cart",
+    "remove": "Remove",
+    "items": "Items",
+    "total": "Total",
+    "empty": "Your cart is empty",
+    "clear": "Clear Cart",
+    "subtotal": "Subtotal"
   }
 }
