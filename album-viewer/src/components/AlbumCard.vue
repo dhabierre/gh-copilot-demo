@@ -53,17 +53,18 @@ const handleImageError = (event: Event): void => {
 
 <style scoped>
 .album-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--card-bg);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--card-shadow);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
 }
 
 .album-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px var(--card-hover-shadow);
 }
 
 .album-image {
@@ -88,7 +89,7 @@ const handleImageError = (event: Event): void => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--overlay-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,13 +127,13 @@ const handleImageError = (event: Event): void => {
 .album-title {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #333;
+  color: var(--text-secondary);
   margin: 0 0 0.5rem 0;
   line-height: 1.3;
 }
 
 .album-artist {
-  color: #666;
+  color: var(--text-muted);
   font-size: 1rem;
   margin: 0 0 1rem 0;
 }

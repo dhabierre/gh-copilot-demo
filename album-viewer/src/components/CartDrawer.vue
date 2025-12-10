@@ -56,7 +56,7 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-dark);
   z-index: 999;
   animation: fadeIn 0.3s ease;
 }
@@ -76,12 +76,13 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   top: 0;
   bottom: 0;
   width: 400px;
-  background: white;
+  background: var(--card-bg);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   z-index: 1000;
   animation: slideIn 0.3s ease;
+  border: 1px solid var(--card-border);
 }
 
 @keyframes slideIn {
@@ -98,13 +99,13 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .drawer-header h2 {
   margin: 0;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 .close-btn {
@@ -112,12 +113,12 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #666;
+  color: var(--text-muted);
   transition: color 0.3s;
 }
 
 .close-btn:hover {
-  color: #333;
+  color: var(--text-secondary);
 }
 
 .drawer-content {
@@ -131,7 +132,7 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: #999;
+  color: var(--text-light);
   font-size: 1.1rem;
 }
 
@@ -145,9 +146,9 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 1px solid var(--card-border);
   border-radius: 8px;
-  background: #fafafa;
+  background: var(--overlay-light-bg);
 }
 
 .item-image {
@@ -168,12 +169,12 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
 .item-details h4 {
   margin: 0 0 0.25rem 0;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 .artist {
   margin: 0 0 0.5rem 0;
-  color: #666;
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -187,7 +188,7 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
 
 .qty {
   font-size: 0.9rem;
-  color: #999;
+  color: var(--text-light);
 }
 
 .remove-btn {
@@ -209,8 +210,8 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
 
 .drawer-footer {
   padding: 1.5rem;
-  border-top: 1px solid #eee;
-  background: #fafafa;
+  border-top: 1px solid var(--card-border);
+  background: var(--overlay-light-bg);
 }
 
 .total-row {
@@ -218,7 +219,7 @@ const { cartItems, isDrawerOpen, removeItem, clear, getTotal, closeDrawer } = us
   justify-content: space-between;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #333;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 

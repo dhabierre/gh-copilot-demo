@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
+import { useTheme } from './composables/useTheme'
 import App from './App.vue'
 import en from './locales/en.json'
 import fr from './locales/fr.json'
@@ -11,6 +12,10 @@ const i18n = createI18n({
 	fallbackLocale: 'en',
 	messages: { en, fr, de }
 })
+
+// Initialize theme before mounting app
+const { initializeTheme } = useTheme()
+initializeTheme()
 
 const app = createApp(App)
 app.use(i18n)

@@ -5,11 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Viewer</title>
     <style>
+        :root[data-theme="light"] {
+            --bg-gradient-start: #667eea;
+            --bg-gradient-end: #764ba2;
+            --text-primary: white;
+            --text-secondary: #333;
+            --text-muted: #666;
+            --text-light: #999;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: #eee;
+            --card-hover-shadow: rgba(0, 0, 0, 0.3);
+            --card-shadow: rgba(0, 0, 0, 0.2);
+            --overlay-dark: rgba(0, 0, 0, 0.5);
+            --overlay-light: rgba(255, 255, 255, 0.2);
+            --overlay-lighter: rgba(255, 255, 255, 0.3);
+            --overlay-light-bg: #fafafa;
+            --button-text: white;
+            --button-hover: white;
+            --button-hover-text: #667eea;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-gradient-start: #1a1a2e;
+            --bg-gradient-end: #16213e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --text-light: #666;
+            --card-bg: rgba(40, 40, 50, 0.95);
+            --card-border: #444;
+            --card-hover-shadow: rgba(0, 0, 0, 0.6);
+            --card-shadow: rgba(0, 0, 0, 0.4);
+            --overlay-dark: rgba(0, 0, 0, 0.7);
+            --overlay-light: rgba(255, 255, 255, 0.1);
+            --overlay-lighter: rgba(255, 255, 255, 0.15);
+            --overlay-light-bg: #2a2a35;
+            --button-text: #e0e0e0;
+            --button-hover: #667eea;
+            --button-hover-text: white;
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
             min-height: 100vh;
+            color: var(--text-primary);
         }
     </style>
 </head>

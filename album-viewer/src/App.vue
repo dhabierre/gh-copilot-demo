@@ -15,6 +15,9 @@
               <option value="de">{{ t('app.languages.de') }}</option>
             </select>
           </div>
+          <button class="theme-btn" @click="toggleTheme" :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+            <span>{{ isDark ? '☀️' : '🌙' }}</span>
+          </button>
           <button class="cart-btn" @click="toggleDrawer">
             <span class="cart-icon">🛒</span>
             <span v-if="getCount > 0" class="cart-badge">{{ getCount }}</span>
@@ -54,6 +57,7 @@ import axios from 'axios'
 import AlbumCard from './components/AlbumCard.vue'
 import CartDrawer from './components/CartDrawer.vue'
 import { useCart } from './store/cart'
+import { useTheme } from './composables/useTheme'
 import type { Album } from './types/album'
 
 const albums = ref<Album[]>([])
@@ -62,6 +66,7 @@ const error = ref<string | null>(null)
 
 const { t, locale } = useI18n()
 const { getCount, toggleDrawer, loadFromStorage } = useCart()
+const { toggleTheme, isDark } = useTheme()
 
 const fetchAlbums = async (): Promise<void> => {
   try {
@@ -92,7 +97,7 @@ onMounted(() => {
 .header {
   text-align: center;
   margin-bottom: 3rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .header-row {
@@ -111,13 +116,49 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.lang-select select {
+  background: var(--overlay-light);
+  color: var(--text-primary);
+  border: 2px solid var(--overlay-lighter);
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-select select:hover {
+  background: var(--overlay-lighter);
+  border-color: var(--text-primary);
+}
+
+.theme-btn {
+  background: var(--overlay-light);
+  border: 2px solid var(--overlay-lighter);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.theme-btn:hover {
+  background: var(--overlay-lighter);
+  border-color: var(--text-primary);
 }
 
 .cart-btn {
   position: relative;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  background: var(--overlay-light);
+  border: 2px solid var(--overlay-lighter);
+  color: var(--text-primary);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -130,8 +171,8 @@ onMounted(() => {
 }
 
 .cart-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: white;
+  background: var(--overlay-lighter);
+  border-color: var(--text-primary);
 }
 
 .cart-icon {
@@ -155,7 +196,6 @@ onMounted(() => {
   border: 2px solid white;
 }
 
-
 .header h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
@@ -178,14 +218,14 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   padding: 4rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .spinner {
   width: 50px;
   height: 50px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid white;
+  border: 4px solid var(--overlay-light);
+  border-top: 4px solid var(--text-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 1rem;
@@ -199,7 +239,7 @@ onMounted(() => {
 .error {
   text-align: center;
   padding: 4rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .error p {
@@ -208,9 +248,9 @@ onMounted(() => {
 }
 
 .retry-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 2px solid white;
+  background: var(--overlay-light);
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
   padding: 0.75rem 2rem;
   border-radius: 25px;
   font-size: 1rem;
@@ -219,8 +259,8 @@ onMounted(() => {
 }
 
 .retry-btn:hover {
-  background: white;
-  color: #667eea;
+  background: var(--button-hover);
+  color: var(--button-hover-text);
 }
 
 .albums-grid {
